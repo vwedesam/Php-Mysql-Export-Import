@@ -7,6 +7,8 @@ require "../vendor/autoload.php";
 	$pass = "";
 	$name = "empty";
 
+	$dsn = "mysql:dbname=$name;host=$host";
+
 	// PDO instance
 	$db_instance = new \PDO($dsn, $user, $pass); 
 
