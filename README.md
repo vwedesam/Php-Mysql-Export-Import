@@ -16,28 +16,71 @@ This package will help you Export a MySQL database and Import it from a dump fil
  
 ### Installation
 
-This Library requires [PHP](https://php.net/) v7.+ to run.
+This Library requires [PHP](https://php.net/) to run.
 
-```sh
+```php
 $ composer require vwedesam/mysql-export-import
 ```
-Install the devDependencies
+### Example:1
+> using helper function __mysqlExporter"__ and __MysqlImporter__ with connection "params"
+```php
+require "../vendor/autoload.php";
 
-```sh
-$ composer install
-```
+	$host = "localhost";
+	$user = "root";
+	$pass = "";
+	$name = "my_mysql_db";
+	
+	// Connection Parameters
+	$connection_params = [
+						'host' => $host, 
+						'name' => $name, 
+						'user' => $user, 
+						'pass' => $pass
+                    ];
 
-### Usage
-> 
+        // parameters
+        // 1: Mysql database Instance <instance>
+        // 2. mysql tables to be export <Array>
+        // 3. backup name <String>
+        // 4. connection parameters <Array>
+        MysqlExporter(null, ['products'], false, $connection_params);
 
 
-#### See [Example]()
+        // parameters
+        // 1: Mysql database Instance <instance>
+        // 2. full path eg "../filepath/db.sql" to mysql dump file (.sql, .zip)
+        // 3. connectoin params <Array>
+        MysqlImporter(null, $sql_content, $connection_params);
+        // return: true / false
+		
+```````
+### Example:2 
+> using helper function __mysqlExporter__ and __MysqlImporter__ with "Mysql Instance"
+```php
+require "../vendor/autoload.php";
 
+	$host = "localhost";
+	$user = "root";
+	$pass = "";
+	$name = "my_mysql_db";
+	
+	$dsn = "mysql:dbname=$name;host=$host";
+
+        // PDO instance
+        $db_instance = new \PDO($dsn, $user, $pass);
+
+        MysqlExporter($db_instance);
+
+        MysqlImporter($db_instance, $sql_content);
+        // return: true / false
+    
+		
+```````
+
+### More Examples
+[Mysql Export Import with classes, functions and connection params](https://github.com/vwedesam/Mysql-Export-Import/blob/main/examples)
 
 License
 ----
-
 MIT
-
-
-**Free Software, Hell Yeah!**
