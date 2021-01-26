@@ -19,7 +19,7 @@ This package will help you Export a MySQL database and Import it from a dump fil
 This Library requires [PHP](https://php.net/) v7.+ to run.
 
 ```sh
-$ composer require vwedesam/mysqlEIport
+$ composer require vwedesam/mysql-export-import
 ```
 Install the devDependencies
 
