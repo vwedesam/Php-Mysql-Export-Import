@@ -1,0 +1,34 @@
+{
+    "name": "vwedesam/mysql-export-import",
+    "description": "import and export mysql DB/Table",
+    "Keywords": ["Mysql database import, export", "mysql import, export", "database export, import"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sam vwede",
+            "email": "eshemiedomisamuelb@gmail.com"
+        }
+    ],
+    "require": {},
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "MysqlEIport\\": "src/"
+        },
+        "files": [ "src/helpers.php" ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload-dev" : {},
+    "scripts": {
+        "run-test": "/vendor/bin/phpunit"
+        
+    }
+}
