@@ -31,7 +31,7 @@ use MysqlEIport\Commands\MysqlImport;
 	elseif ( array_key_exists('export', $_GET) ) {
 		
 		$export = new MysqlExport($db_instance);
-		$export->tables = 'migrations';
+		$export->tables = ['migrations'];
 		$export->backup_name = "test";
 		$export->execute();
 		

@@ -11,8 +11,6 @@ use MysqlEIport\Commands\MysqlImport;
 	$pass = "";
 	$name = "empty";
 
-	// Connection Parameters
-	$connection_params = array($host, $name, $user, $pass);
 
 	if( isset($_POST) && isset($_FILES['db_file']) ){
 
@@ -21,7 +19,8 @@ use MysqlEIport\Commands\MysqlImport;
 		if(file_exists($sql_content))
 		{
 			$cmd = new MysqlImport(null, $sql_content);
-			$cmd->connection($connection_params);
+			// Connection Parameters
+			$cmd->connection($host, $name, $user, $pass);
 			$cmd->execute();
 		}else{
 			throw new \Exception(" $sql_content does not exits", 1);
@@ -31,9 +30,10 @@ use MysqlEIport\Commands\MysqlImport;
 	elseif ( array_key_exists('export', $_GET) ) {
 		
 		$export = new MysqlExport(null);
-		$export->tables = 'migrations';
+		$export->tables = ['migrations'];
 		$export->backup_name = "test";
-		$cmd->connection($connection_params);
+		// Connection Parameters
+		$export->connection($host, $name, $user, $pass);
 		$export->execute();
 		
 	}
@@ -47,7 +47,7 @@ use MysqlEIport\Commands\MysqlImport;
 <body>
 	<h1> Mysql Export and Import Database and Table  </h1>
 	<h2> Using Mysql Command Classes with Connection Parameters </h2>
-	<pre> array( host_name , database_name, user_name, password); </pre>
+	<pre> connection( host_name , database_name, user_name, password) </pre>
 
 	<form enctype="multipart/form-data" method="POST">
 		<input type="file" name="db_file" />

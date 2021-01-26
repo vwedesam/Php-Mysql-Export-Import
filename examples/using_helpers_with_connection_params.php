@@ -26,7 +26,7 @@ require "../vendor/autoload.php";
 	}
 	elseif ( array_key_exists('export', $_GET) ) {
 		
-		MysqlExporter(null, false, false, $connection_params);
+		MysqlExporter(null, ['products'], false, $connection_params);
 	}
 
 ?>
