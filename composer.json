@@ -1,7 +1,6 @@
 {
     "name": "vwedesam/mysql-export-import",
-    "description": "import and export mysql DB/Table",
-    "Keywords": ["Mysql database import, export", "mysql import, export", "database export, import"],
+    "description": "import and export mysql Database/Table",
     "type": "library",
     "license": "MIT",
     "authors": [
