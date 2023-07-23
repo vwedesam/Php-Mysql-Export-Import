@@ -129,7 +129,7 @@ class MysqlExport implements CommandInterface
 			$content .="\n\n\n";
 		}
 
-		$content .= " \r\n\r\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */; \r\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */; \r\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;";
+		$content .= "COMMIT;\r\n\r\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */; \r\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */; \r\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;";
 
 		$exted_name = '_('.date('H-i-s').'_'.date('d-m-Y').').sql';
 		$this->backup_name = $this->backup_name ? $this->backup_name.$exted_name : $this->name.$exted_name;
